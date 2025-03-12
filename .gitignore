@@ -1,0 +1,32 @@
+# Arquivos de configuração com credenciais
+config.json
+.env
+*.pem
+*.key
+secrets.yaml
+credentials.json
+
+# Diretórios e arquivos Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Ambientes virtuais
+venv/
+ENV/
+.venv/
+
+# Logs
+*.log
+logs/
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+
+# IDEs e editores de texto
+.idea/
+.vscode/
+
+# Diretórios específicos do projeto
+.serverless/

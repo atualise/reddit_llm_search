@@ -1,0 +1,36 @@
+service: reddit-llm-searcher
+
+provider:
+  name: aws
+  runtime: python3.8
+  environment:
+    CLIENT_ID: ${env:CLIENT_ID}
+    CLIENT_SECRET: ${env:CLIENT_SECRET}
+    USER_AGENT: ${env:USER_AGENT}
+    VERIFY_TOKEN: YOUR_VERIFY_TOKEN
+
+functions:
+  search:
+    handler: handler.search_reddit
+    events:
+      - http:
+          path: search
+          method: post
+          cors: true
+  whatsappWebhook:
+    handler: app.webhook
+    events:
+      - http:
+          path: webhook
+          method: post
+          cors: true
+
+plugins:
+  - serverless-python-requirements
+
+package:
+  exclude:
+    - node_modules/**
+    - .gitignore
+    - README.md
+    - .git/**
